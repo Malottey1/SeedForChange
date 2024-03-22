@@ -1,38 +1,47 @@
 <?php
+// Include the database connection file
+include "../settings/connection.php";
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Include your database connection file
-    require_once "db_connection.php";
-
-    // Get the form data
+    // Get form data
     $title = $_POST["title"];
     $description = $_POST["description"];
     $requirements = $_POST["requirements"];
     $date = $_POST["date"];
-    // Cause Areas
-    $cause_areas = isset($_POST["cause_areas"]) ? $_POST["cause_areas"] : [];
+    $cause_areas = $_POST["cause_area[]"]; // Change to cause_area[] if multiple cause areas are selected
 
-    // Validate the form data (you may need more robust validation)
+    // Validate form data (you may need more robust validation)
     if (!empty($title) && !empty($description) && !empty($requirements) && !empty($date)) {
-        // Prepare and execute the SQL statement to insert opportunity data
-        $sql = "INSERT INTO Opportunities (title, description, requirements, date)
-                VALUES ('$title', '$description', '$requirements', '$date')";
+        // Insert opportunity data into opportunities table
+        $sql = "INSERT INTO opportunities (title, description, requirements, date) VALUES ('$title', '$description', '$requirements', '$date')";
         if (mysqli_query($conn, $sql)) {
             // Get the opportunity ID
             $opportunity_id = mysqli_insert_id($conn);
+            
+            // Insert cause areas for the opportunity into collective_cause_areas table
+            $sql_insert_collective_cause_areas = "INSERT INTO collective_cause_areas (cause_area_1, cause_area_2, cause_area_3, cause_area_4, cause_area_5, cause_area_6, cause_area_7, cause_area_8, cause_area_9, cause_area_10) VALUES ";
+            $sql_insert_collective_cause_areas .= "('";
+            $sql_insert_collective_cause_areas .= implode("', '", $cause_areas);
+            $sql_insert_collective_cause_areas .= "')";
+            
+            if (mysqli_query($conn, $sql_insert_collective_cause_areas)) {
+                // Get the collective cause areas ID
+                $collective_cause_areas_id = mysqli_insert_id($conn);
+                
+                // Insert collective cause areas ID into opportunity_cause_areas table
+                $sql_insert_opportunity_cause_area = "INSERT INTO opportunity_cause_areas (opportunity_id, collective_cause_areas_id) VALUES ('$opportunity_id', '$collective_cause_areas_id')";
+                mysqli_query($conn, $sql_insert_opportunity_cause_area);
 
-            // Insert cause areas for the opportunity into the Opportunity_Cause_Areas table
-            foreach ($cause_areas as $cause_area_id) {
-                $sql = "INSERT INTO Opportunity_Cause_Areas (opportunity_id, cause_area_id)
-                        VALUES ('$opportunity_id', '$cause_area_id')";
-                mysqli_query($conn, $sql);
+                // Opportunity posted successfully
+                echo "Opportunity posted successfully!";
+                // Redirect user to homepage or another appropriate page
+                header("Location: ../view/homepage.php");
+                exit();
+            } else {
+                // Error in SQL execution
+                echo "Error: " . mysqli_error($conn);
             }
-
-            // Opportunity posted successfully
-            echo "Opportunity posted successfully!";
-            // Redirect the user to the homepage or another appropriate page
-            header("Location: homepage.php");
-            exit();
         } else {
             // Error in SQL execution
             echo "Error: " . mysqli_error($conn);
@@ -41,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Required fields are empty
         echo "Title, description, requirements, and date are required.";
     }
-
-    // Close the database connection
-    mysqli_close($conn);
 }
+
+// Close database connection
+mysqli_close($conn);
 ?>

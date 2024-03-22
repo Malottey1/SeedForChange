@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Profile</title>
 </head>
 <body>
-    <h1>Register for an Account</h1>
-    <form action="registration_process.php" method="POST" enctype="multipart/form-data">
+    <header>
+        <h1>Profile</h1>
+        <nav>
+            <ul>
+                <li><a href="../view/homepage.php">Homepage</a></li>
+                <li><a href="../action/logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Account Information</h2>
+            <!-- Display user's account information -->
+            <p>Email: user@example.com</p>
+            <p>First Name: John</p>
+            <p>Last Name: Doe</p>
+            <p>Biography: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Country: United States</p>
+            <p>Phone Number: 1234567890</p>
+            <p>Languages Spoken: English, Spanish</p>
+
+
+    <h1>Edit Profile</h1>
+    <form action="../action/update_profile.php" method="POST" enctype="multipart/form-data">
         <!-- Account Information -->
         <h2>Account Information:</h2>
         <label for="email">Email:</label>
@@ -116,10 +139,9 @@
         <label><input type="checkbox" name="cause_areas[]" value="Violence prevention"> Violence prevention</label><br>
         <label><input type="checkbox" name="cause_areas[]" value="Youth development"> Youth development</label><br>
 
-        
-        <input type="submit" value="Register">
+        <input type="submit" value="Save Changes">
     </form>
-    
-    <p>Already have an account? <a href="login.php">Login here</a></p>
+
+</main>
 </body>
 </html>

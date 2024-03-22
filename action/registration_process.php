@@ -1,14 +1,14 @@
 <?php
+ // Include your database connection file
+ include '../settings/connection.php';
+
 // Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Include your database connection file
-    require_once "db_connection.php";
+if (isset($_POST['register'])) {
 
     // Get the form data
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
-    // Additional fields
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
     $biography = $_POST["biography"];
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Registration successful
                 echo "Registration successful!";
                 // Redirect the user to the login page
-                header("Location: login.php");
+                header("Location: ../login/login.php");
                 exit();
             } else {
                 // Error in SQL execution

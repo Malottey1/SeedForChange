@@ -7,16 +7,16 @@
 </head>
 <body>
     <h1>Login</h1>
-    <form action="login_process.php" method="POST">
+    <form action="../action/login_process.php" method="POST">
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br><br>
         
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br><br>
-        
-        <input type="submit" value="Login">
+    
+        <button name="login" type="submit" id="loginButton">Login</button>
     </form>
     
-    <p>Don't have an account? <a href="register.php">Register here</a></p>
+    <p>Don't have an account? <a href="../login/register.php">Register here</a></p>
 </body>
 </html>

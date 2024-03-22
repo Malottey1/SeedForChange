@@ -1,8 +1,8 @@
 <?php
 // Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['login'])) {
     // Include your database connection file
-    require_once "db_connection.php";
+    require_once "../settings/connection.php";
 
     // Get the form data
     $email = $_POST["email"];
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["user_id"] = $user["user_id"];
                 $_SESSION["email"] = $user["email"];
                 // Redirect the user to the homepage or dashboard
-                header("Location: homepage.php");
+                header("Location: ../view/homepage.php");
                 exit();
             } else {
                 // User does not exist or invalid credentials

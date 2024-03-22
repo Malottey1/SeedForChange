@@ -10,9 +10,9 @@
         <h1>Volunteer Listings</h1>
         <nav>
             <ul>
-                <li><a href="homepage.php">Homepage</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="../view/homepage.php">Homepage</a></li>
+                <li><a href="../view/profile.php">Profile</a></li>
+                <li><a href="../action/logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -27,14 +27,14 @@
                     <p>Description of Opportunity 1</p>
                     <p>Date: June 15, 2024</p>
                     <p>Cause Area: Environment, Education</p>
-                    <a href="opportunity_details.php?id=1">View Details</a>
+                    <a href="../view/opportunity_details.php?id=1">View Details</a>
                 </li>
                 <li>
                     <h3>Title of Opportunity 2</h3>
                     <p>Description of Opportunity 2</p>
                     <p>Date: July 1, 2024</p>
                     <p>Cause Area: Health & Nutrition, Community & Economic Development</p>
-                    <a href="opportunity_details.php?id=2">View Details</a>
+                    <a href="../view/opportunity_details.php?id=2">View Details</a>
                 </li>
                 <!-- Add more volunteer opportunities dynamically -->
             </ul>

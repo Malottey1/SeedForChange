@@ -30,9 +30,9 @@
         <section>
             <h2>Get Started</h2>
             <p>Ready to make a difference? Join Seed for Change today!</p>
-            <a href="register.php">Register</a>
+            <a href="../login/register.php">Register</a>
             <span>or</span>
-            <a href="login.php">Login</a>
+            <a href="../login/login.php">Login</a>
         </section>
     </main>
     

@@ -4,7 +4,7 @@ session_start(); // Start the session (assuming you're using sessions for user a
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include your database connection file
-    require_once "db_connection.php";
+    require_once "../settings/connection.php";
 
     // Get the opportunity ID from the form
     $opportunity_id = $_POST["opportunity_id"];
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the user is logged in
     if (!isset($_SESSION["user_id"])) {
         // If the user is not logged in, redirect them to the login page
-        header("Location: login.php");
+        header("Location: ../login/login.php");
         exit();
     }
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Registration successful
         echo "Registration successful!";
         // Redirect the user to the homepage or another appropriate page
-        header("Location: homepage.php");
+        header("Location: ../view/homepage.php");
         exit();
     } else {
         // Error in SQL execution

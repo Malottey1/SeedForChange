@@ -10,9 +10,9 @@
         <h1>Opportunity Details</h1>
         <nav>
             <ul>
-                <li><a href="homepage.php">Homepage</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="../view/homepage.php">Homepage</a></li>
+                <li><a href="../view/profile.php">Profile</a></li>
+                <li><a href="../actions/logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -21,7 +21,7 @@
         <section>
             <?php
             // Include your database connection file
-            require_once "db_connection.php";
+            require_once "../settings/connection.php";
 
             // Check if the 'id' parameter is set in the URL
             if (isset($_GET['id'])) {
