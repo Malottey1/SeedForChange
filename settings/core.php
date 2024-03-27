@@ -5,10 +5,13 @@
 
     function check_login(){
 
-        if (!isset($_SESSION['user-id'])){// redirect user to login page if no session exists with user
+        if (!isset($_SESSION['user_id'])){// redirect user to login page if no session exists with user
             header("Location: ../login/login.php");
             die();
         }
     }
+
+    //Store the current user id in this session
+    $_SESSION['user_id'] = $user_id;
 
 ?>

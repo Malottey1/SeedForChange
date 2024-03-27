@@ -24,30 +24,30 @@
                 <input type="text" id="title" name="title" required><br><br>
 
                 <h3>Cause Areas:</h3>
-                <label><input type="checkbox" name="cause_area" value="Animals"> Animals</label><br>
-                <label><input type="checkbox" name="cause_area" value="Arts & culture"> Arts & culture</label><br>
-                <label><input type="checkbox" name="cause_area" value="Civil rights"> Civil rights</label><br>
-                <label><input type="checkbox" name="cause_area" value="Community & economic development"> Community & economic development</label><br>
-                <label><input type="checkbox" name="cause_area" value="Disaster relief"> Disaster relief</label><br>
-                <label><input type="checkbox" name="cause_area" value="Disease & medical research"> Disease & medical research</label><br>
-                <label><input type="checkbox" name="cause_area" value="Diversity & inclusion"> Diversity & inclusion</label><br>
-                <label><input type="checkbox" name="cause_area" value="Education"> Education</label><br>
-                <label><input type="checkbox" name="cause_area" value="Employment services"> Employment services</label><br>
-                <label><input type="checkbox" name="cause_area" value="Environment"> Environment</label><br>
-                <label><input type="checkbox" name="cause_area" value="Gender equity & justice"> Gender equity & justice</label><br>
-                <label><input type="checkbox" name="cause_area" value="Health & nutrition"> Health & nutrition</label><br>
-                <label><input type="checkbox" name="cause_area" value="Housing & homelessness"> Housing & homelessness</label><br>
-                <label><input type="checkbox" name="cause_area" value="Human services"> Human services</label><br>
-                <label><input type="checkbox" name="cause_area" value="International affairs"> International affairs</label><br>
-                <label><input type="checkbox" name="cause_area" value="Justice & legal services"> Justice & legal services</label><br>
-                <label><input type="checkbox" name="cause_area" value="LGBTQ+"> LGBTQ+</label><br>
-                <label><input type="checkbox" name="cause_area" value="Maternal health"> Maternal health</label><br>
-                <label><input type="checkbox" name="cause_area" value="Military & veterans affairs"> Military & veterans affairs</label><br>
-                <label><input type="checkbox" name="cause_area" value="Philanthropy & capacity building"> Philanthropy & capacity building</label><br>
-                <label><input type="checkbox" name="cause_area" value="Religion & spirituality"> Religion & spirituality</label><br>
-                <label><input type="checkbox" name="cause_area" value="Science & technology"> Science & technology</label><br>
-                <label><input type="checkbox" name="cause_area" value="Violence prevention"> Violence prevention</label><br>
-                <label><input type="checkbox" name="cause_area" value="Youth development"> Youth development</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Animals"> Animals</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Arts & culture"> Arts & culture</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Civil rights"> Civil rights</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Community & economic development"> Community & economic development</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Disaster relief"> Disaster relief</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Disease & medical research"> Disease & medical research</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Diversity & inclusion"> Diversity & inclusion</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Education"> Education</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Employment services"> Employment services</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Environment"> Environment</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Gender equity & justice"> Gender equity & justice</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Health & nutrition"> Health & nutrition</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Housing & homelessness"> Housing & homelessness</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Human services"> Human services</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="International affairs"> International affairs</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Justice & legal services"> Justice & legal services</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="LGBTQ+"> LGBTQ+</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Maternal health"> Maternal health</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Military & veterans affairs"> Military & veterans affairs</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Philanthropy & capacity building"> Philanthropy & capacity building</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Religion & spirituality"> Religion & spirituality</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Science & technology"> Science & technology</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Violence prevention"> Violence prevention</label><br>
+                <label><input type="checkbox" name="cause_area[]" value="Youth development"> Youth development</label><br>
                 
                 <label for="description">Description:</label><br>
                 <textarea id="description" name="description" rows="4" required></textarea><br><br>

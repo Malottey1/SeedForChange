@@ -1,8 +1,10 @@
 <?php
+// Include your database connection file
+include "../settings/connection.php";
+session_start();
+
 // Check if the form is submitted
 if (isset($_POST['login'])) {
-    // Include your database connection file
-    require_once "../settings/connection.php";
 
     // Get the form data
     $email = $_POST["email"];
@@ -23,12 +25,11 @@ if (isset($_POST['login'])) {
             if (mysqli_num_rows($result) == 1) {
                 // User authenticated successfully
                 // Start a session and store user data
-                session_start();
                 $user = mysqli_fetch_assoc($result);
                 $_SESSION["user_id"] = $user["user_id"];
                 $_SESSION["email"] = $user["email"];
                 // Redirect the user to the homepage or dashboard
-                header("Location: ../view/homepage.php");
+                header("Location: ../view/homepage-postlogin.php");
                 exit();
             } else {
                 // User does not exist or invalid credentials
