@@ -1,14 +1,20 @@
 <?php
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Include your database connection file
-    require_once "db_connection.php";
+// Include your database connection file
+include "../settings/connection.php";
 
+// Start the session
+session_start();
+
+// Check if the user is logged in
+check_login();
+
+// Check if the form is submitted for login
+if (isset($_POST['login'])) {
     // Get the form data
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Validate the form data (you may need more robust validation)
+    // Validate the form data
     if (!empty($email) && !empty($password)) {
         // Hash the password for comparison
         $hashed_password = md5($password); // You should use a more secure hashing algorithm like bcrypt
@@ -22,13 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Check if the user exists
             if (mysqli_num_rows($result) == 1) {
                 // User authenticated successfully
-                // Start a session and store user data
-                session_start();
+                // Store user data in the session
                 $user = mysqli_fetch_assoc($result);
                 $_SESSION["user_id"] = $user["user_id"];
                 $_SESSION["email"] = $user["email"];
+
                 // Redirect the user to the homepage or dashboard
-                header("Location: homepage.php");
+                header("Location: ../view/homepage-postlogin.php");
                 exit();
             } else {
                 // User does not exist or invalid credentials
@@ -44,6 +50,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Form fields are empty
         echo "Email and password are required.";
+    }
+}
+
+// Define the check_login() function
+function check_login() {
+    if (isset($_SESSION['user_id'])) {
+        // Redirect the user to the homepage if they are already logged in
+        header("Location: ../view/homepage-postlogin.php");
+        exit();
     }
 }
 ?>
