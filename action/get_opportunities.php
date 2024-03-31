@@ -1,32 +1,51 @@
 <?php
-include "../settings/connection.php";
+// Include the file to connect to the database
+include '../settings/connection.php';
 
-// Retrieve opportunity ID from the URL or any other source
-$opportunity_id = isset($_GET['opportunity_id']) ? $_GET['opportunity_id'] : null;
 
-// Example of how to sanitize the input (optional, but recommended)
-$opportunity_id = filter_var($opportunity_id, FILTER_VALIDATE_INT);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-if ($opportunity_id === false || $opportunity_id === null) {
-    header("Location: ../view/homepage.php");
-    exit();
+// Function to fetch opportunities from the database
+function getOpportunities() {
+    global $conn;
+
+    // Query to fetch all opportunities
+    $sql = "SELECT * FROM opportunities";
+    $result = mysqli_query($conn, $sql);
+
+    // Check if there are any opportunities
+    if (mysqli_num_rows($result) > 0) {
+        // Loop through each row and fetch opportunity details
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Fetch cause areas associated with the opportunity
+            $opportunity_id = $row['id'];
+            $cause_areas_sql = "SELECT cause_areas.name FROM cause_areas
+                                INNER JOIN opportunity_cause_areas ON cause_areas.id = opportunity_cause_areas.cause_area_id
+                                WHERE opportunity_cause_areas.opportunity_id = $opportunity_id";
+            $cause_areas_result = mysqli_query($conn, $cause_areas_sql);
+
+            // Initialize an array to store cause areas
+            $cause_areas = array();
+            while ($cause_area_row = mysqli_fetch_assoc($cause_areas_result)) {
+                $cause_areas[] = $cause_area_row['name'];
+            }
+
+            // Display opportunity details
+            echo '<li>' .
+                    '<h3>' . $row['title'] . '</h3>' .
+                    '<p>' . $row['description'] . '</p>' .
+                    '<p>Date: ' . $row['date'] . '</p>' .
+                    '<p>Cause Area: ' . implode(", ", $cause_areas) . '</p>' .
+                    '<a href="../view/opportunity_details.php?id=' . $opportunity_id . '">View Details</a>' .
+                 '</li>';
+        }
+    } else {
+        // Display message if no opportunities available
+        echo '<li>No opportunities available</li>';
+    }
 }
 
-// Fetch opportunity details
-$sql = "SELECT title, description, requirements, date FROM opportunities WHERE opportunity_id = $opportunity_id";
-$result = mysqli_query($conn, $sql);
-$opportunity = mysqli_fetch_assoc($result);
-
-// Fetch cause areas associated with the opportunity
-$sql = "SELECT ca.name FROM cause_areas ca
-        INNER JOIN opportunity_cause_areas oca ON ca.cause_area_id = oca.cause_area_id
-        WHERE oca.opportunity_id = $opportunity_id";
-$result = mysqli_query($conn, $sql);
-$cause_areas = [];
-while ($row = mysqli_fetch_assoc($result)) {
-    $cause_areas[] = $row['name'];
-}
-
-// Close the database connection
+// Close database connection
 mysqli_close($conn);
 ?>

@@ -1,7 +1,6 @@
 <?php 
-  include "../settings/core.php";
-  check_login();
-
+  //include "../settings/core.php";
+  //check_login();
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +37,9 @@
             <p>Ready to make a difference? Join Seed for Change today!</p>
             <a href="../view/post_opportunity.php">Post Opportunity</a>
             <span>or</span>
-            <a href="../login/login.php">Login</a>
+            <a href="../view/volunteer_listings.php">Volunteer</a>
+            <br>
+            <a href="../view/profile.php">View Profile</a>
         </section>
     </main>
     

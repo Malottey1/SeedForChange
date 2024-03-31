@@ -37,89 +37,118 @@
         
         <!-- Professional Experience -->
         <h2>Professional Experience:</h2>
-        <label for="position">Position:</label>
-        <input type="text" id="position" name="position"><br><br>
-        <label for="organization">Organization/Company:</label>
-        <input type="text" id="organization" name="organization"><br><br>
-        <label for="from_date">From:</label>
-        <input type="date" id="from_date" name="from_date"><br><br>
-        <label for="to_date">To:</label>
-        <input type="date" id="to_date" name="to_date"><br><br>
-        <label for="description">Description:</label>
-        <textarea id="description" name="description"></textarea><br><br>
+        <div id="professional_experience">
+            <div class="experience_entry">
+                <label for="position1">Position:</label>
+                <input type="text" id="position1" name="position[]"><br><br>
+                <label for="organization1">Organization/Company:</label>
+                <input type="text" id="organization1" name="organization[]"><br><br>
+                <label for="from_date1">From:</label>
+                <input type="date" id="from_date1" name="from_date[]"><br><br>
+                <label for="to_date1">To:</label>
+                <input type="date" id="to_date1" name="to_date[]"><br><br>
+                <label for="description1">Description:</label>
+                <textarea id="description1" name="description[]"></textarea><br><br>
+            </div>
+        </div>
+        <button type="button" onclick="addExperience()">Add Another Experience</button>
         
         <!-- Project Preferences -->
         <h2>Project Preferences:</h2>
 
         <!-- Skills Checkbox -->
         <h3>Skills Checkbox:</h3>
-        <label><input type="checkbox" name="skills" value="Accounting"> Accounting</label><br>
-        <label><input type="checkbox" name="skills" value="Artificial intelligence"> Artificial intelligence</label><br>
-        <label><input type="checkbox" name="skills" value="Branding"> Branding</label><br>
-        <label><input type="checkbox" name="skills" value="Business development"> Business development</label><br>
-        <label><input type="checkbox" name="skills" value="Coaching"> Coaching</label><br>
-        <label><input type="checkbox" name="skills" value="Communications"> Communications</label><br>
-        <label><input type="checkbox" name="skills" value="Data analysis"> Data analysis</label><br>
-        <label><input type="checkbox" name="skills" value="Database administration"> Database administration</label><br>
-        <label><input type="checkbox" name="skills" value="Digital advertising"> Digital advertising</label><br>
-        <label><input type="checkbox" name="skills" value="Digital marketing"> Digital marketing</label><br>
-        <label><input type="checkbox" name="skills" value="Engineering"> Engineering</label><br>
-        <label><input type="checkbox" name="skills" value="Entrepreneurship"> Entrepreneurship</label><br>
-        <label><input type="checkbox" name="skills" value="Event planning"> Event planning</label><br>
-        <label><input type="checkbox" name="skills" value="Executive leadership"> Executive leadership</label><br>
-        <label><input type="checkbox" name="skills" value="Finance"> Finance</label><br>
-        <label><input type="checkbox" name="skills" value="Fundraising"> Fundraising</label><br>
-        <label><input type="checkbox" name="skills" value="Graphic design"> Graphic design</label><br>
-        <label><input type="checkbox" name="skills" value="Human resources"> Human resources</label><br>
-        <label><input type="checkbox" name="skills" value="Information technology"> Information technology</label><br>
-        <label><input type="checkbox" name="skills" value="Management"> Management</label><br>
-        <label><input type="checkbox" name="skills" value="Marketing"> Marketing</label><br>
-        <label><input type="checkbox" name="skills" value="Organizational design"> Organizational design</label><br>
-        <label><input type="checkbox" name="skills" value="Photography & video"> Photography & video</label><br>
-        <label><input type="checkbox" name="skills" value="Project management"> Project management</label><br>
-        <label><input type="checkbox" name="skills" value="Public relations"> Public relations</label><br>
-        <label><input type="checkbox" name="skills" value="Research"> Research</label><br>
-        <label><input type="checkbox" name="skills" value="Sales"> Sales</label><br>
-        <label><input type="checkbox" name="skills" value="Search engine marketing"> Search engine marketing</label><br>
-        <label><input type="checkbox" name="skills" value="Social media"> Social media</label><br>
-        <label><input type="checkbox" name="skills" value="Sound editing"> Sound editing</label><br>
-        <label><input type="checkbox" name="skills" value="Strategy consulting"> Strategy consulting</label><br>
-        <label><input type="checkbox" name="skills" value="Talent recruitment"> Talent recruitment</label><br>
-        <label><input type="checkbox" name="skills" value="Training"> Training</label><br>
-        <label><input type="checkbox" name="skills" value="Web design"> Web design</label><br>
-        <label><input type="checkbox" name="skills" value="Web development"> Web development</label><br>
+        <label><input type="checkbox" name="skills[]" value="1"> Accounting</label><br>
+        <label><input type="checkbox" name="skills[]" value="2"> Artificial intelligence</label><br>
+        <label><input type="checkbox" name="skills[]" value="3"> Branding</label><br>
+        <label><input type="checkbox" name="skills[]" value="4"> Business development</label><br>
+        <label><input type="checkbox" name="skills[]" value="5"> Coaching</label><br>
+        <label><input type="checkbox" name="skills[]" value="6"> Communications</label><br>
+        <label><input type="checkbox" name="skills[]" value="7"> Data analysis</label><br>
+        <label><input type="checkbox" name="skills[]" value="8"> Database administration</label><br>
+        <label><input type="checkbox" name="skills[]" value="9"> Digital advertising</label><br>
+        <label><input type="checkbox" name="skills[]" value="10"> Digital marketing</label><br>
+        <label><input type="checkbox" name="skills[]" value="11"> Engineering</label><br>
+        <label><input type="checkbox" name="skills[]" value="12"> Entrepreneurship</label><br>
+        <label><input type="checkbox" name="skills[]" value="13"> Event planning</label><br>
+        <label><input type="checkbox" name="skills[]" value="14"> Executive leadership</label><br>
+        <label><input type="checkbox" name="skills[]" value="15"> Finance</label><br>
+        <label><input type="checkbox" name="skills[]" value="16"> Fundraising</label><br>
+        <label><input type="checkbox" name="skills[]" value="17"> Graphic design</label><br>
+        <label><input type="checkbox" name="skills[]" value="18"> Human resources</label><br>
+        <label><input type="checkbox" name="skills[]" value="19"> Information technology</label><br>
+        <label><input type="checkbox" name="skills[]" value="20"> Management</label><br>
+        <label><input type="checkbox" name="skills[]" value="21"> Marketing</label><br>
+        <label><input type="checkbox" name="skills[]" value="22"> Organizational design</label><br>
+        <label><input type="checkbox" name="skills[]" value="23"> Photography & video</label><br>
+        <label><input type="checkbox" name="skills[]" value="24"> Project management</label><br>
+        <label><input type="checkbox" name="skills[]" value="25"> Public relations</label><br>
+        <label><input type="checkbox" name="skills[]" value="26"> Research</label><br>
+        <label><input type="checkbox" name="skills[]" value="27"> Sales</label><br>
+        <label><input type="checkbox" name="skills[]" value="28"> Search engine marketing</label><br>
+        <label><input type="checkbox" name="skills[]" value="29"> Social media</label><br>
+        <label><input type="checkbox" name="skills[]" value="30"> Sound editing</label><br>
+        <label><input type="checkbox" name="skills[]" value="31"> Strategy consulting</label><br>
+        <label><input type="checkbox" name="skills[]" value="32"> Talent recruitment</label><br>
+        <label><input type="checkbox" name="skills[]" value="33"> Training</label><br>
+        <label><input type="checkbox" name="skills[]" value="34"> Web design</label><br>
+        <label><input type="checkbox" name="skills[]" value="35"> Web development</label><br>
 
         <!-- Cause Areas -->
         <h3>Cause Areas:</h3>
-        <label><input type="checkbox" name="cause_area" value="Animals"> Animals</label><br>
-        <label><input type="checkbox" name="cause_area" value="Arts & culture"> Arts & culture</label><br>
-        <label><input type="checkbox" name="cause_area" value="Civil rights"> Civil rights</label><br>
-        <label><input type="checkbox" name="cause_area" value="Community & economic development"> Community & economic development</label><br>
-        <label><input type="checkbox" name="cause_area" value="Disaster relief"> Disaster relief</label><br>
-        <label><input type="checkbox" name="cause_area" value="Disease & medical research"> Disease & medical research</label><br>
-        <label><input type="checkbox" name="cause_area" value="Diversity & inclusion"> Diversity & inclusion</label><br>
-        <label><input type="checkbox" name="cause_area" value="Education"> Education</label><br>
-        <label><input type="checkbox" name="cause_area" value="Employment services"> Employment services</label><br>
-        <label><input type="checkbox" name="cause_area" value="Environment"> Environment</label><br>
-        <label><input type="checkbox" name="cause_area" value="Gender equity & justice"> Gender equity & justice</label><br>
-        <label><input type="checkbox" name="cause_area" value="Health & nutrition"> Health & nutrition</label><br>
-        <label><input type="checkbox" name="cause_area" value="Housing & homelessness"> Housing & homelessness</label><br>
-        <label><input type="checkbox" name="cause_area" value="Human services"> Human services</label><br>
-        <label><input type="checkbox" name="cause_area" value="International affairs"> International affairs</label><br>
-        <label><input type="checkbox" name="cause_area" value="Justice & legal services"> Justice & legal services</label><br>
-        <label><input type="checkbox" name="cause_area" value="LGBTQ+"> LGBTQ+</label><br>
-        <label><input type="checkbox" name="cause_area" value="Maternal health"> Maternal health</label><br>
-        <label><input type="checkbox" name="cause_area" value="Military & veterans affairs"> Military & veterans affairs</label><br>
-        <label><input type="checkbox" name="cause_area" value="Philanthropy & capacity building"> Philanthropy & capacity building</label><br>
-        <label><input type="checkbox" name="cause_area" value="Religion & spirituality"> Religion & spirituality</label><br>
-        <label><input type="checkbox" name="cause_area" value="Science & technology"> Science & technology</label><br>
-        <label><input type="checkbox" name="cause_area" value="Violence prevention"> Violence prevention</label><br>
-        <label><input type="checkbox" name="cause_area" value="Youth development"> Youth development</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="1"> Animals</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="2"> Arts & culture</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="3"> Civil rights</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="4"> Community & economic development</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="5"> Disaster relief</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="6"> Disease & medical research</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="7"> Diversity & inclusion</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="8"> Education</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="9"> Employment services</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="10"> Environment</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="11"> Gender equity & justice</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="12"> Health & nutrition</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="13"> Housing & homelessness</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="14"> Human services</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="15"> International affairs</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="16"> Justice & legal services</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="17"> LGBTQ+</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="18"> Maternal health</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="19"> Military & veterans affairs</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="20"> Philanthropy & capacity building</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="21"> Religion & spirituality</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="22"> Science & technology</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="23"> Violence prevention</label><br>
+        <label><input type="checkbox" name="cause_area[]" value="24"> Youth development</label><br>
 
         
         <button name="register" type="submit" id="loginButton">Register</button>
     </form>
     
     <p>Already have an account? <a href="../login/login.php">Login here</a></p>
+
+    <script>
+    var experienceCount = 1; // Initialize the count of experiences
+
+    function addExperience() {
+        experienceCount++; // Increment the count
+        var newExperience = document.createElement('div'); // Create a new div for the experience
+        newExperience.classList.add('experience_entry'); // Add a class for styling
+        newExperience.innerHTML = `
+            <label for="position${experienceCount}">Position:</label>
+            <input type="text" id="position${experienceCount}" name="position[]"><br><br>
+            <label for="organization${experienceCount}">Organization/Company:</label>
+            <input type="text" id="organization${experienceCount}" name="organization[]"><br><br>
+            <label for="from_date${experienceCount}">From:</label>
+            <input type="date" id="from_date${experienceCount}" name="from_date[]"><br><br>
+            <label for="to_date${experienceCount}">To:</label>
+            <input type="date" id="to_date${experienceCount}" name="to_date[]"><br><br>
+            <label for="description${experienceCount}">Description:</label>
+            <textarea id="description${experienceCount}" name="description[]"></textarea><br><br>
+        `;
+        document.getElementById('professional_experience').appendChild(newExperience); // Append the new experience to the container
+    }
+</script>
 </body>
+
 </html>

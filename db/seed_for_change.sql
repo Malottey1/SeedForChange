@@ -15,8 +15,21 @@ CREATE TABLE users (
   profile_photo VARCHAR(255),
   country VARCHAR(50),
   phone_number VARCHAR(20),
-  languages_spoken VARCHAR(255)
+  languages_spoken VARCHAR(255),
+  status TINYINT DEFAULT 1
 );
+
+CREATE TABLE professional_experiences (
+  experience_id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT,
+  position VARCHAR(100),
+  organization VARCHAR(100),
+  from_date DATE,
+  to_date DATE,
+  description TEXT,
+  FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
 
 CREATE TABLE skills (
   skill_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,6 +43,7 @@ CREATE TABLE opportunities (
   requirements TEXT NOT NULL,
   date DATE NOT NULL,
   user_id INT NOT NULL,
+  status TINYINT DEFAULT 1,
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -96,3 +110,40 @@ INSERT INTO cause_areas (name) VALUES
   ("Science & technology"),
   ("Violence prevention"),
   ("Youth development");
+
+INSERT INTO skills (name) VALUES 
+("Accounting"), 
+("Artificial intelligence"), 
+("Branding"), 
+("Business development"), 
+("Coaching"), 
+("Communications"), 
+("Data analysis"), 
+("Database administration"), 
+("Digital advertising"), 
+("Digital marketing"), 
+("Engineering"), 
+("Entrepreneurship"), 
+("Event planning"), 
+("Executive leadership"), 
+("Finance"), 
+("Fundraising"), 
+("Graphic design"), 
+("Human resources"), 
+("Information technology"), 
+("Management"), 
+("Marketing"), 
+("Organizational design"), 
+("Photography & video"), 
+("Project management"), 
+("Public relations"), 
+("Research"), 
+("Sales"), 
+("Search engine marketing"), 
+("Social media"), 
+("Sound editing"), 
+("Strategy consulting"), 
+("Talent recruitment"), 
+("Training"), 
+("Web design"), 
+("Web development");

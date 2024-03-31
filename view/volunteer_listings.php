@@ -21,22 +21,47 @@
         <section>
             <h2>Available Volunteer Opportunities</h2>
             <ul>
-                <!-- Display volunteer opportunities dynamically here -->
-                <li>
-                    <h3>Title of Opportunity 1</h3>
-                    <p>Description of Opportunity 1</p>
-                    <p>Date: June 15, 2024</p>
-                    <p>Cause Area: Environment, Education</p>
-                    <a href="../view/opportunity_details.php?id=1">View Details</a>
-                </li>
-                <li>
-                    <h3>Title of Opportunity 2</h3>
-                    <p>Description of Opportunity 2</p>
-                    <p>Date: July 1, 2024</p>
-                    <p>Cause Area: Health & Nutrition, Community & Economic Development</p>
-                    <a href="../view/opportunity_details.php?id=2">View Details</a>
-                </li>
-                <!-- Add more volunteer opportunities dynamically -->
+                <?php
+                // Include the file to connect to the database
+                include '../settings/connection.php';
+
+                // Query to fetch opportunities with status 1
+                $sql = "SELECT * FROM opportunities WHERE status = 1";
+                $result = mysqli_query($conn, $sql);
+
+                // Check if there are any opportunities
+                if (mysqli_num_rows($result) > 0) {
+                    // Loop through each row and fetch opportunity details
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        // Fetch cause areas associated with the opportunity
+                        $opportunity_id = $row['id'];
+                        $cause_areas_sql = "SELECT cause_areas.name FROM cause_areas
+                                            INNER JOIN opportunity_cause_areas ON cause_areas.id = opportunity_cause_areas.cause_area_id
+                                            WHERE opportunity_cause_areas.opportunity_id = $opportunity_id";
+                        $cause_areas_result = mysqli_query($conn, $cause_areas_sql);
+
+                        // Initialize an array to store cause areas
+                        $cause_areas = array();
+                        while ($cause_area_row = mysqli_fetch_assoc($cause_areas_result)) {
+                            $cause_areas[] = $cause_area_row['name'];
+                        }
+
+                        // Display opportunity details
+                        echo '<li>' .
+                                '<h3>' . $row['title'] . '</h3>' .
+                                '<p>Date: ' . $row['date'] . '</p>' .
+                                '<p>Cause Area: ' . implode(", ", $cause_areas) . '</p>' .
+                                '<a href="../view/register_opportunity.php?id=' . $opportunity_id . '">View Details</a>' .
+                             '</li>';
+                    }
+                } else {
+                    // Display message if no opportunities available
+                    echo '<li>No opportunities available</li>';
+                }
+
+                // Close database connection
+                mysqli_close($conn);
+                ?>
             </ul>
         </section>
         
