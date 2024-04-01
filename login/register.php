@@ -18,7 +18,7 @@
     </div>
         
         <!-- Account Information -->
-        <h2 style="color: #32620e";>Account Information:</h2>
+        <h2 style="color: #32620e";>Account Information</h2>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
         <label for="password">Password:</label>
@@ -29,7 +29,7 @@
         
         
         <!-- Personal Profile -->
-        <h2 style="color: #32620e">Personal Profile:</h2>
+        <h2 style="color: #32620e">Personal Profile</h2>
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name"><br><br>
         <label for="last_name">Last Name:</label>
@@ -47,7 +47,7 @@
     
         
         <!-- Professional Experience -->
-        <h2 style="color: #32620e">Professional Experience:</h2>
+        <h2 style="color: #32620e">Professional Experience</h2>
         <div id="professional_experience">
             <div class="experience_entry">
                 <label for="position1">Position:</label>
@@ -65,10 +65,10 @@
         <button type="button" onclick="addExperience()" style="margin-left: 70px";>Add Another Experience</button>
         
         <!-- Project Preferences -->
-        <h2 style="color: #32620e">Project Preferences:</h2>
+        <h2 style="color: #32620e; margin-bottom: 0px ">Project Preferences</h2>
 
         <!-- Skills Checkbox -->
-        <h3 style="color: #32620e">Skills Checkbox:</h3>
+        <h3 style="color: #32620e">Skills</h3>
         <div class="checkbox-column">
         <div class="checkbox-wrapper-43">
         <input type="checkbox" id="cbx-43" name="skills[]" value="1">
@@ -471,11 +471,25 @@
 
 
         <!-- Cause Areas -->
-        <h3 style="color: #32620e">Cause Areas:</h3>
+        <h3 style="color: #32620e">Cause Areas</h3>
         <div class="checkbox-column">
-        <label>
-    <div class="checkbox-wrapper-43">
-        <input type="checkbox" id="cbx-43-1" name="cause_area[]" value="1">
+        <label style="display: flex; align-items: center;">
+        <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+            <input type="checkbox" id="cbx-43-1" name="cause_area[]" value="1">
+            <span class="check">
+                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                </svg>
+            </span>
+        </div>
+        Animals
+    </label>
+    
+
+    <label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-2" name="cause_area[]" value="2">
         <span class="check">
             <svg width="18px" height="18px" viewBox="0 0 18 18">
                 <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
@@ -483,25 +497,204 @@
             </svg>
         </span>
     </div>
-    Animals
+    Arts & culture
 </label>
-            <label><input type="checkbox" name="cause_area[]" value="2"> Arts & culture</label>
-            <label><input type="checkbox" name="cause_area[]" value="3"> Civil rights</label>
-            <label><input type="checkbox" name="cause_area[]" value="5"> Disaster relief</label>
-            <label><input type="checkbox" name="cause_area[]" value="6"> Disease & medical research</label>
-            <label><input type="checkbox" name="cause_area[]" value="7"> Diversity & inclusion</label>
-            <label><input type="checkbox" name="cause_area[]" value="8"> Education</label>
-            <label><input type="checkbox" name="cause_area[]" value="9"> Employment services</label>
-            <label><input type="checkbox" name="cause_area[]" value="10"> Environment</label>
-            <label><input type="checkbox" name="cause_area[]" value="11"> Gender equity & justice</label>
-            <label><input type="checkbox" name="cause_area[]" value="12"> Health & nutrition</label>
-            <label><input type="checkbox" name="cause_area[]" value="13"> Housing & homelessness</label>
-            <label><input type="checkbox" name="cause_area[]" value="14"> Human services</label>
-            <label><input type="checkbox" name="cause_area[]" value="15"> International affairs</label>
-            <label><input type="checkbox" name="cause_area[]" value="16"> Justice & legal services</label>
-            <label><input type="checkbox" name="cause_area[]" value="17"> LGBTQ+</label>
-            <label><input type="checkbox" name="cause_area[]" value="18"> Maternal health</label>
-            <label><input type="checkbox" name="cause_area[]" value="4"> Community & economic development</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-3" name="cause_area[]" value="3">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Civil rights
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-5" name="cause_area[]" value="5">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Disaster relief
+</label>
+
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;"> 
+        <input type="checkbox" id="cbx-43-6" name="cause_area[]" value="6">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Disease & medical research
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-7" name="cause_area[]" value="7">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Diversity & inclusion
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-8" name="cause_area[]" value="8">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Education
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-9" name="cause_area[]" value="9">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Employment services
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-10" name="cause_area[]" value="10">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Environment
+</label>
+
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-11" name="cause_area[]" value="11">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Gender equity & justice
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-12" name="cause_area[]" value="12">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Health & nutrition
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-13" name="cause_area[]" value="13">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Housing & homelessness
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-14" name="cause_area[]" value="14">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Human services
+</label>
+
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-15" name="cause_area[]" value="15">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    International affairs
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-16" name="cause_area[]" value="16">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Justice & legal services
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-17" name="cause_area[]" value="17">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    LGBTQ+
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-18" name="cause_area[]" value="18">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Maternal health
+</label>
+<label style="display: flex; align-items: center;">
+    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+        <input type="checkbox" id="cbx-43-4" name="cause_area[]" value="4">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Community & economic development
+</label>
+
         </div>
 
 
