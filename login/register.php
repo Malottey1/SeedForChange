@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
     <title>Register</title>
 </head>
 <body>
-    <h1>Register for an Account</h1>
+    <h1><img class="logo" src="../assests/images/1.svg" alt="Seed for Change logo"></h1>
+    <div class="container">
+    <div class="registration-form">
     <form action="../action/registration_process.php" method="POST" enctype="multipart/form-data">
+    <div class="cont-header">
+            
+            <h1>Lets plant your first seed!</h1>
+    </div>
+        
         <!-- Account Information -->
-        <h2>Account Information:</h2>
+        <h2 style="color: #32620e";>Account Information:</h2>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
         <label for="password">Password:</label>
@@ -18,8 +27,9 @@
         <input type="password" id="confirm_password" name="confirm_password" required><br><br>
         
         
+        
         <!-- Personal Profile -->
-        <h2>Personal Profile:</h2>
+        <h2 style="color: #32620e">Personal Profile:</h2>
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name"><br><br>
         <label for="last_name">Last Name:</label>
@@ -34,9 +44,10 @@
         <input type="text" id="phone_number" name="phone_number"><br><br>
         <label for="languages_spoken">Languages Spoken:</label>
         <input type="text" id="languages_spoken" name="languages_spoken"><br><br>
+    
         
         <!-- Professional Experience -->
-        <h2>Professional Experience:</h2>
+        <h2 style="color: #32620e">Professional Experience:</h2>
         <div id="professional_experience">
             <div class="experience_entry">
                 <label for="position1">Position:</label>
@@ -51,81 +62,455 @@
                 <textarea id="description1" name="description[]"></textarea><br><br>
             </div>
         </div>
-        <button type="button" onclick="addExperience()">Add Another Experience</button>
+        <button type="button" onclick="addExperience()" style="margin-left: 70px";>Add Another Experience</button>
         
         <!-- Project Preferences -->
-        <h2>Project Preferences:</h2>
+        <h2 style="color: #32620e">Project Preferences:</h2>
 
         <!-- Skills Checkbox -->
-        <h3>Skills Checkbox:</h3>
-        <label><input type="checkbox" name="skills[]" value="1"> Accounting</label><br>
-        <label><input type="checkbox" name="skills[]" value="2"> Artificial intelligence</label><br>
-        <label><input type="checkbox" name="skills[]" value="3"> Branding</label><br>
-        <label><input type="checkbox" name="skills[]" value="4"> Business development</label><br>
-        <label><input type="checkbox" name="skills[]" value="5"> Coaching</label><br>
-        <label><input type="checkbox" name="skills[]" value="6"> Communications</label><br>
-        <label><input type="checkbox" name="skills[]" value="7"> Data analysis</label><br>
-        <label><input type="checkbox" name="skills[]" value="8"> Database administration</label><br>
-        <label><input type="checkbox" name="skills[]" value="9"> Digital advertising</label><br>
-        <label><input type="checkbox" name="skills[]" value="10"> Digital marketing</label><br>
-        <label><input type="checkbox" name="skills[]" value="11"> Engineering</label><br>
-        <label><input type="checkbox" name="skills[]" value="12"> Entrepreneurship</label><br>
-        <label><input type="checkbox" name="skills[]" value="13"> Event planning</label><br>
-        <label><input type="checkbox" name="skills[]" value="14"> Executive leadership</label><br>
-        <label><input type="checkbox" name="skills[]" value="15"> Finance</label><br>
-        <label><input type="checkbox" name="skills[]" value="16"> Fundraising</label><br>
-        <label><input type="checkbox" name="skills[]" value="17"> Graphic design</label><br>
-        <label><input type="checkbox" name="skills[]" value="18"> Human resources</label><br>
-        <label><input type="checkbox" name="skills[]" value="19"> Information technology</label><br>
-        <label><input type="checkbox" name="skills[]" value="20"> Management</label><br>
-        <label><input type="checkbox" name="skills[]" value="21"> Marketing</label><br>
-        <label><input type="checkbox" name="skills[]" value="22"> Organizational design</label><br>
-        <label><input type="checkbox" name="skills[]" value="23"> Photography & video</label><br>
-        <label><input type="checkbox" name="skills[]" value="24"> Project management</label><br>
-        <label><input type="checkbox" name="skills[]" value="25"> Public relations</label><br>
-        <label><input type="checkbox" name="skills[]" value="26"> Research</label><br>
-        <label><input type="checkbox" name="skills[]" value="27"> Sales</label><br>
-        <label><input type="checkbox" name="skills[]" value="28"> Search engine marketing</label><br>
-        <label><input type="checkbox" name="skills[]" value="29"> Social media</label><br>
-        <label><input type="checkbox" name="skills[]" value="30"> Sound editing</label><br>
-        <label><input type="checkbox" name="skills[]" value="31"> Strategy consulting</label><br>
-        <label><input type="checkbox" name="skills[]" value="32"> Talent recruitment</label><br>
-        <label><input type="checkbox" name="skills[]" value="33"> Training</label><br>
-        <label><input type="checkbox" name="skills[]" value="34"> Web design</label><br>
-        <label><input type="checkbox" name="skills[]" value="35"> Web development</label><br>
+        <h3 style="color: #32620e">Skills Checkbox:</h3>
+        <div class="checkbox-column">
+        <div class="checkbox-wrapper-43">
+        <input type="checkbox" id="cbx-43" name="skills[]" value="1">
+        <label for="cbx-43" class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </label>
+        <label for="cbx-43">Accounting</label><br>
+        </div>
+
+        <div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-2" name="skills[]" value="2">
+    <label for="cbx-43-2" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-2">Artificial intelligence</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-3" name="skills[]" value="3">
+    <label for="cbx-43-3" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-3">Branding</label><br>
+</div>
+
+
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-4" name="skills[]" value="4">
+    <label for="cbx-43-4" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-4">Business development</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-5" name="skills[]" value="5">
+    <label for="cbx-43-5" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-5">Coaching</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-6" name="skills[]" value="6">
+    <label for="cbx-43-6" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-6">Communications</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-7" name="skills[]" value="7">
+    <label for="cbx-43-7" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-7">Data analysis</label><br>
+</div>
+
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-8" name="skills[]" value="8">
+    <label for="cbx-43-8" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-8">Database administration</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-9" name="skills[]" value="9">
+    <label for="cbx-43-9" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-9">Digital advertising</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-10" name="skills[]" value="10">
+    <label for="cbx-43-10" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-10">Digital marketing</label><br>
+</div>
+
+
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-11" name="skills[]" value="11">
+    <label for="cbx-43-11" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-11">Engineering</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-12" name="skills[]" value="12">
+    <label for="cbx-43-12" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-12">Entrepreneurship</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-13" name="skills[]" value="13">
+    <label for="cbx-43-13" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-13">Event planning</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-14" name="skills[]" value="14">
+    <label for="cbx-43-14" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-14">Executive leadership</label><br>
+</div>
+
+
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-15" name="skills[]" value="15">
+    <label for="cbx-43-15" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-15">Finance</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-16" name="skills[]" value="16">
+    <label for="cbx-43-16" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-16">Fundraising</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-17" name="skills[]" value="17">
+    <label for="cbx-43-17" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-17">Graphic design</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-18" name="skills[]" value="18">
+    <label for="cbx-43-18" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-18">Human resources</label><br>
+</div>
+
+
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-19" name="skills[]" value="19">
+    <label for="cbx-43-19" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-19">Information technology</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-20" name="skills[]" value="20">
+    <label for="cbx-43-20" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-20">Management</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-21" name="skills[]" value="21">
+    <label for="cbx-43-21" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-21">Marketing</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-22" name="skills[]" value="22">
+    <label for="cbx-43-22" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-22">Organizational design</label><br>
+</div>
+
+
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-23" name="skills[]" value="23">
+    <label for="cbx-43-23" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-23">Photography & video</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-24" name="skills[]" value="24">
+    <label for="cbx-43-24" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-24">Project management</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-25" name="skills[]" value="25">
+    <label for="cbx-43-25" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-25">Public relations</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-26" name="skills[]" value="26">
+    <label for="cbx-43-26" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-26">Research</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-27" name="skills[]" value="27">
+    <label for="cbx-43-27" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-27">Sales</label><br>
+</div>
+
+
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-28" name="skills[]" value="28">
+    <label for="cbx-43-28" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-28">Search engine marketing</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-29" name="skills[]" value="29">
+    <label for="cbx-43-29" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-29">Social media</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-30" name="skills[]" value="30">
+    <label for="cbx-43-30" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-30">Sound editing</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-31" name="skills[]" value="31">
+    <label for="cbx-43-31" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-31">Strategy consulting</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-32" name="skills[]" value="32">
+    <label for="cbx-43-32" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-32">Talent recruitment</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-33" name="skills[]" value="33">
+    <label for="cbx-43-33" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-33">Training</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-34" name="skills[]" value="34">
+    <label for="cbx-43-34" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-34">Web design</label><br>
+</div>
+
+<div class="checkbox-wrapper-43">
+    <input type="checkbox" id="cbx-43-35" name="skills[]" value="35">
+    <label for="cbx-43-35" class="check">
+        <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+        </svg>
+    </label>
+    <label for="cbx-43-35">Web development</label><br>
+</div>
+</div>
+
 
         <!-- Cause Areas -->
-        <h3>Cause Areas:</h3>
-        <label><input type="checkbox" name="cause_area[]" value="1"> Animals</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="2"> Arts & culture</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="3"> Civil rights</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="4"> Community & economic development</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="5"> Disaster relief</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="6"> Disease & medical research</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="7"> Diversity & inclusion</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="8"> Education</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="9"> Employment services</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="10"> Environment</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="11"> Gender equity & justice</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="12"> Health & nutrition</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="13"> Housing & homelessness</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="14"> Human services</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="15"> International affairs</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="16"> Justice & legal services</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="17"> LGBTQ+</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="18"> Maternal health</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="19"> Military & veterans affairs</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="20"> Philanthropy & capacity building</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="21"> Religion & spirituality</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="22"> Science & technology</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="23"> Violence prevention</label><br>
-        <label><input type="checkbox" name="cause_area[]" value="24"> Youth development</label><br>
+        <h3 style="color: #32620e">Cause Areas:</h3>
+        <div class="checkbox-column">
+        <label>
+    <div class="checkbox-wrapper-43">
+        <input type="checkbox" id="cbx-43-1" name="cause_area[]" value="1">
+        <span class="check">
+            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                <polyline points="1 9 7 14 15 4"></polyline>
+            </svg>
+        </span>
+    </div>
+    Animals
+</label>
+            <label><input type="checkbox" name="cause_area[]" value="2"> Arts & culture</label>
+            <label><input type="checkbox" name="cause_area[]" value="3"> Civil rights</label>
+            <label><input type="checkbox" name="cause_area[]" value="5"> Disaster relief</label>
+            <label><input type="checkbox" name="cause_area[]" value="6"> Disease & medical research</label>
+            <label><input type="checkbox" name="cause_area[]" value="7"> Diversity & inclusion</label>
+            <label><input type="checkbox" name="cause_area[]" value="8"> Education</label>
+            <label><input type="checkbox" name="cause_area[]" value="9"> Employment services</label>
+            <label><input type="checkbox" name="cause_area[]" value="10"> Environment</label>
+            <label><input type="checkbox" name="cause_area[]" value="11"> Gender equity & justice</label>
+            <label><input type="checkbox" name="cause_area[]" value="12"> Health & nutrition</label>
+            <label><input type="checkbox" name="cause_area[]" value="13"> Housing & homelessness</label>
+            <label><input type="checkbox" name="cause_area[]" value="14"> Human services</label>
+            <label><input type="checkbox" name="cause_area[]" value="15"> International affairs</label>
+            <label><input type="checkbox" name="cause_area[]" value="16"> Justice & legal services</label>
+            <label><input type="checkbox" name="cause_area[]" value="17"> LGBTQ+</label>
+            <label><input type="checkbox" name="cause_area[]" value="18"> Maternal health</label>
+            <label><input type="checkbox" name="cause_area[]" value="4"> Community & economic development</label>
+        </div>
 
-        
-        <button name="register" type="submit" id="loginButton">Register</button>
+
+    <br>
+        <button name="register" type="submit" id="loginButton" style="margin-left: 70px";>Register</button>
     </form>
-    
+    <br>
     <p>Already have an account? <a href="../login/login.php">Login here</a></p>
+    </div>
 
     <script>
     var experienceCount = 1; // Initialize the count of experiences
@@ -152,3 +537,4 @@
 </body>
 
 </html>
+

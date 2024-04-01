@@ -32,15 +32,21 @@
             </ul>
         </section>
         
-        <section>
-            <h2>Get Started</h2>
-            <p>Ready to make a difference? Join Seed for Change today!</p>
-            <a href="../view/post_opportunity.php">Post Opportunity</a>
-            <span>or</span>
-            <a href="../view/volunteer_listings.php">Volunteer</a>
-            <br>
-            <a href="../view/profile.php">View Profile</a>
+        <section class="get-started-section">
+            <div class="text-column">
+                <h2>Get Started</h2>
+                <p>Ready to make a difference? Join Seed for Change today!</p>
+                <a href="../view/post_opportunity.php">Post Opportunity</a>
+                <span>or</span>
+                <a href="../view/volunteer_listings.php">Volunteer</a>
+                <br>
+                <a href="../view/profile.php">View Profile</a>
+            </div>
+            <div class="image-column">
+                <img src="your-image.jpg" alt="Image">
+            </div>
         </section>
+
     </main>
     
     <footer>
