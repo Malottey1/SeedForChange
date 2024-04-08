@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Layout</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 80%;
+        margin-top: 50px;
+    }
+
+    .wide-box {
+        width: 70%;
+        height: 200px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .small-box {
+        width: 20%;
+        height: 200px;
+        padding: 20px;
+        padding-right: 5px;
+        background-color: #f0f0f0;
+        border-radius: 10%;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .long-box {
+        width: 80%;
+        padding: 20px;
+        background-color: #f0f0f0;
+        margin-top: 50px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+
+        :root {
+        --progress-bar-width: 200px;
+        --progress-bar-height: 200px;
+        --font-size: 2rem;
+        }
+
+        .circular-progress {
+        width: var(--progress-bar-width);
+        height: var(--progress-bar-height);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .inner-circle {
+        position: absolute;
+        width: calc(var(--progress-bar-width) - 30px);
+        height: calc(var(--progress-bar-height) - 30px);
+        border-radius: 50%;
+        background-color: lightgrey;
+        }
+
+        .percentage {
+        position: relative;
+        font-size: var(--font-size);
+        color: rgb(0, 0, 0, 0.8);
+        }
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box-wrapper">
+            <div class="wide-box">Wide Rounded Rectangle Box</div>
+            <div class="small-box">
+                <div class="circular-progress" data-inner-circle-color="lightgrey" data-percentage="1" data-progress-color="crimson" data-bg-color="black">
+                <div class="inner-circle"></div>
+                <p class="percentage"></p><br>
+                <p class="additional-text">Progress</p> <!-- New paragraph for additional text -->
+              </div>
+              <p class="additional-text">Progress</p>
+            </div>
+            
+        </div>
+        <div class="long-box">Long Box Covering the Width of the Page</div>
+    </div>
+    
+
+</body>
+<script>
+    const circularProgress = document.querySelectorAll(".circular-progress");
+
+    Array.from(circularProgress).forEach((progressBar) => {
+    const progressValue = progressBar.querySelector(".percentage");
+    const innerCircle = progressBar.querySelector(".inner-circle");
+    let startValue = 0,
+        endValue = Number(progressBar.getAttribute("data-percentage")),
+        speed = 50,
+        progressColor = progressBar.getAttribute("data-progress-color");
+
+    const progress = setInterval(() => {
+        startValue++;
+        progressValue.textContent = `${startValue}%`;
+        progressValue.style.color = `${progressColor}`;
+
+        innerCircle.style.backgroundColor = `${progressBar.getAttribute(
+        "data-inner-circle-color"
+        )}`;
+
+        progressBar.style.background = `conic-gradient(${progressColor} ${
+        startValue * 3.6
+        }deg,${progressBar.getAttribute("data-bg-color")} 0deg)`;
+        if (startValue === endValue) {
+        clearInterval(progress);
+        }
+    }, speed);
+    });
+</script>
+</html>
