@@ -1,0 +1,277 @@
+
+*{
+
+  font-family: 'Work Sans', sans-serif;
+
+}
+body {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    height: 100vh;
+    /* background-color: #f0f0f0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assests/images/reg-back.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover; /* Cover the entire container with the background image */
+    background-repeat: no-repeat; 
+}
+
+.profile{
+    background-color: #ffff;
+}
+
+
+.registration-form {
+    flex: 1;
+    background-color: #ffff;
+    margin: 0 auto;
+    margin-right: 0;
+    overflow-y: auto; /* Allow scrolling for the form */
+    overflow-x: hidden;
+    position: relative;
+    
+    
+}
+
+.form-adjust{
+  margin-left:-50px;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #32620e;
+    color: white;
+}
+
+.logo {
+    max-width: 80%; /* Adjust the size of the logo */
+    max-height: 80vh; /* Adjust the size of the logo */
+}
+
+form {
+    max-width: 400px; /* Adjust the width of the form */
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    width: 600px;
+    height: 400px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    background-color: #ffffff;
+    margin: 0;
+    overflow: auto;
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #32620e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2b5310;
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+p a {
+    color: #32620e;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+
+
+  .checkbox-wrapper-43 input[type="checkbox"] {
+    display: none;
+    visibility: hidden;
+  }
+
+  .checkbox-wrapper-43 label {
+    display: inline-block;
+  }
+
+  .checkbox-wrapper-43 .check {
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+  }
+  .checkbox-wrapper-43 .check:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(34,50,84,0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .checkbox-wrapper-43 .check svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #c8ccd4;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+  }
+  .checkbox-wrapper-43 .check svg path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+  }
+  .checkbox-wrapper-43 .check svg polyline {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 66;
+  }
+  .checkbox-wrapper-43 .check:hover:before {
+    opacity: 1;
+  }
+  .checkbox-wrapper-43 .check:hover svg {
+    stroke: #4285f4;
+  }
+  .checkbox-wrapper-43 input[type="checkbox"]:checked + .check svg {
+    stroke: #4285f4;
+  }
+  .checkbox-wrapper-43 input[type="checkbox"]:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+  }
+  .checkbox-wrapper-43 input[type="checkbox"]:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+  }
+
+  .checkbox-column {
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 250px); /* Three columns */
+    grid-template-rows: repeat(6, 30px);
+    gap: 5px; /* Adjust the gap between checkboxes */
+
+}
+
+.cont-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Example background color */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Example box shadow */
+    z-index: 1000; /* Ensure the header stays above other content */
+    font-style:unset;
+}
+
+
+/* Tabbed interface styles */
+.tabbed-interface {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  position: sticky;
+  top: 0; 
+  z-index: 1000;
+}
+
+.tab {
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px;
+  background-color: #5b8e35;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #32620e;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Next button styles */
+.next-button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #32620e;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.next-button:hover {
+  background-color: #3b7313;
+}
+
+.register {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #32620e;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}

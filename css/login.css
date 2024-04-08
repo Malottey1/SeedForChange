@@ -1,0 +1,143 @@
+*{
+
+    font-family: 'Work Sans', sans-serif;
+
+}
+body {
+    margin: 0; /* Remove margin on the body */
+    font-family: 'Work Sans', sans-serif;
+    position: relative;
+    min-height: 100%;
+    background-image: url('../assests/images/initial-background.svg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover; /* Cover the entire container with the background image */
+    background-repeat: no-repeat; 
+}
+
+.header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white; 
+    box-shadow: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
+}
+
+.header-image {
+    background-image: url('../assests/images/back3.jpg'); /* Replace 'your-image.jpg' with the path to your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust height to fit viewport */
+    width: 100%;
+    position: relative;
+    background-attachment: fixed; /* Add parallax effect */
+
+}
+
+.cta button {
+    background-color: #32620e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.cta button:hover {
+    background-color: #fff;
+    color: #32620e;
+}
+
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 150px;
+    padding-left: 350px;
+    padding-right: 300px;
+    margin-bottom: 200px;
+    
+}
+
+.login-box {
+    width: 1000px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.login-text {
+    margin-left: 50px; /* Adjust the spacing as needed */
+}
+
+.login-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.login-text a {
+    color: blue;
+    text-decoration: none;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(11, 33, 11);
+    padding-top: 20px;
+    color: white;
+    text-align: right;
+    padding-bottom: 200px;
+}
+
+  footer a{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px ;
+  }
+
+#loginButton {
+    background-color: #32620e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 20px;
+    width: 100px;
+}
+
+#registerButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #32620e;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#registerButton:hover {
+    background-color: #45a049;
+}
+
+#registerButton a{
+    color: white;
+    text-decoration: none;
+  }
+
+.header a{
+    text-decoration: none;
+}

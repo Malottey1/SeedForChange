@@ -14,7 +14,7 @@
             <img src="../assests/images/4.svg" alt="Seed for Change logo" style="width: 50px; height: auto;">
         </div>
         <div class="cta">
-            <button>Get Started</button>
+        <button onclick="scrollToGetStarted()">Get Started</button>
         </div>
     </header>
 
@@ -26,40 +26,63 @@
     <div class="header-image"></div>
     
     <main>
-    <section>
-        <div class="section-content">
-            <h2>About Seed for Change</h2>
-            <p>Seed for Change is a platform dedicated to connecting passionate volunteers with organizations working towards positive change in their communities. Whether you're an individual looking to make a difference or an organization seeking dedicated volunteers, Seed for Change is here to help.</p>
+    <div class="two-column-section">
+        <div class="left-column">
+            <h2 style="font-size: 60px; color: white; margin: 20px; margin-top: 35px; text-align:center;";>About Seed for Change</h2>
+            
         </div>
+        <div class="right-column">
+            <p style="font-size: 30px; margin: 20px; text-align: left;";>Seed for Change is a platform dedicated to connecting passionate volunteers with organizations working towards positive change in their communities. Whether you're an individual looking to make a difference or an organization seeking dedicated volunteers, Seed for Change is here to help.</p>
+        </div>
+</div>
+    
+    <section class= "featured-project">
+        <div class="horizontal-strip">
+        <div class="strip-content">
+            <h2 style="color: #32620e; font-size: 60px; margin-top: 20px;">What We Offer</h2>
+        </div>
+        </div>
+        <div class="features">
+            <div class="feature-column">
+            <img src="../assests/images/5.svg" alt="Seed for Change logo" style="width:150px; height: auto;">
+                <p style="color: #32620e;">Search and apply for volunteer opportunities</p>
+            </div>
+            <div class="feature-column">
+            <img src="../assests/images/8.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
+                <p>Create and manage volunteer listings</p>
+            </div>
+            <div class="feature-column">
+            <img src="../assests/images/6.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
+                <p style="color: #32620e;">Track volunteer registrations</p>
+            </div>
+            <div class="feature-column">
+            <img src="../assests/images/7.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
+                <p>Update and manage volunteer activity</p>
+            </div>
+</div>
+
+        
     </section>
     
-    <section>
-        <div class="section-content">
-            <h2>Features</h2>
-            <ul>
-                <li>Search and apply for volunteer opportunities</li>
-                <li>Create and manage volunteer listings</li>
-                <li>Track volunteer registrations</li>
-                <li>Update and manage volunteer activity</li>
-            </ul>
-        </div>
-    </section>
-    
-    <section>
-        <div class="section-content">
-            <h2>Get Started</h2>
-            <p>Ready to make a difference? Join Seed for Change today!</p>
-            <a href="../login/register.php">Register</a>
-            <span>or</span>
-            <a href="../login/login.php">Login</a>
-        </div>
-    </section>
+    <div class="custom-two-column-section" id="get-started-section">
+    <div class="custom-text-column custom-horizontal-strip">
+        <h2>Get Started</h2>
+        <p>Ready to make a difference? Join Seed for Change today!</p>
+        <a href="../login/register.php" class="rounded-button">Register</a>
+        <span>or</span>
+        <a href="../login/login.php" class="rounded-button">Login</a>
+    </div>
+    <div class="custom-image-column"></div>
+</div>
+
+
+
 </main>
 
 
     
     <footer>
-        <p>&copy; 2024 Seed for Change. All rights reserved.</p>
+        <p style="text-align: right">&copy; 2024 Seed for Change. All rights reserved.</p>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -77,6 +100,11 @@
             window.addEventListener('scroll', handleScroll);
             handleScroll();
         });
+
+        function scrollToGetStarted() {
+        var getStartedSection = document.getElementById("get-started-section");
+        getStartedSection.scrollIntoView({ behavior: 'smooth' });
+    }
     </script>
 </body>
 </html>
