@@ -1,65 +1,319 @@
+<?php
+  include "../settings/connection.php";
+  //check_login();
+
+  ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+  session_start();
+
+  if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id']; // Assuming you store user ID in session
+    
+    // Fetch user data from the database
+    $sql = "SELECT * FROM users WHERE user_id = $user_id";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // User found, retrieve user data
+        $user_data = mysqli_fetch_assoc($result);
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/post-opp.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
     <title>Post Volunteer Opportunities</title>
 </head>
 <body>
-    <header>
-        <h1>Post Volunteer Opportunities</h1>
-        <nav>
-            <ul>
-                <li><a href="../view/homepage.php">Homepage</a></li>
-                <li><a href="../action/logout.php">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>Create New Volunteer Opportunity</h2>
-            <form action="../action/post_opportunity_process.php" method="POST">
+<header class="header">
+            <div class="logo">
+            <a href="../view/homepage-postlogin.php">
+                <img src="../assests/images/3.svg" alt="Seed for Change logo" style="width: 50px; height: auto; margin-left: 20px; margin-top: 10px;">
+            </a>
+            </div>
+            <div class="cta">
+                <a href="../view/volunteer_listings.php" style="margin-right: 10px;">Volunteer</a>
+                <a href="../view/post_opportunity.php" style="margin-right: 10px;">Post Opportunity</a>
+                <a href="../view/manage-opportunities.php" style="margin-right: 10px;  text-decoration: none;" class="registered-opportunities-profile-button">Manage Opportunities</a>
+                <a href="../view/registered_opportunities.php" style="margin-right: 10px;  text-decoration: none;" class="registered-opportunities-profile-button">Track Your Progress</a>
+                <a href="../view/profile.php" style="margin-right: 10px;">
+                <span><?php if (!empty($user_data['profile_photo'])): ?>
+                <img src="<?php echo $user_data['profile_photo']; ?>" alt="Profile Photo" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 20px;margin-top : 10px;">
+            <?php endif; ?></span>
+                </a>
+            </div>
+        </header>
+        <h2 style="color:#32620e; margin-left: 200px; margin-top: 50px; margin-bottom: 0px;">Create New Volunteer Opportunity</h2>
+        <div class="container">
+        <form action="../action/post_opportunity_process.php" method="POST">
+        <div class="form-container">
+            <div class="form-column">
                 <label for="title">Title:</label><br>
                 <input type="text" id="title" name="title" required><br><br>
 
-                <h3>Cause Areas:</h3>
-                <label><input type="checkbox" name="cause_area[]" value="Animals"> Animals</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Arts & culture"> Arts & culture</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Civil rights"> Civil rights</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Community & economic development"> Community & economic development</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Disaster relief"> Disaster relief</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Disease & medical research"> Disease & medical research</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Diversity & inclusion"> Diversity & inclusion</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Education"> Education</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Employment services"> Employment services</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Environment"> Environment</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Gender equity & justice"> Gender equity & justice</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Health & nutrition"> Health & nutrition</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Housing & homelessness"> Housing & homelessness</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Human services"> Human services</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="International affairs"> International affairs</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Justice & legal services"> Justice & legal services</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="LGBTQ+"> LGBTQ+</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Maternal health"> Maternal health</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Military & veterans affairs"> Military & veterans affairs</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Philanthropy & capacity building"> Philanthropy & capacity building</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Religion & spirituality"> Religion & spirituality</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Science & technology"> Science & technology</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Violence prevention"> Violence prevention</label><br>
-                <label><input type="checkbox" name="cause_area[]" value="Youth development"> Youth development</label><br>
-                
+                <div class="form-adjust">
+                                    <!-- Cause Areas -->
+                                    <h3 style="color: #32620e">Cause Areas</h3>
+                                    <div class="checkbox-column">
+                                                    <label style="display: flex; align-items: center;">
+                                                    <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                        <input type="checkbox" id="cbx-43-1" name="cause_area[]" value="Animals">
+                                                        <span class="check">
+                                                            <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                                <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                                <polyline points="1 9 7 14 15 4"></polyline>
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                    Animals
+                                                </label>
+                                                
+
+                                                <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-2" name="cause_area[]" value="Arts & culture">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Arts & culture
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-3" name="cause_area[]" value="Civil rights">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Civil rights
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-5" name="cause_area[]" value="Disaster relief">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Disaster relief
+                                            </label>
+
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;"> 
+                                                    <input type="checkbox" id="cbx-43-6" name="cause_area[]" value="Disease & medical research">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Disease & medical research
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-7" name="cause_area[]" value="Diversity & inclusion">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Diversity & inclusion
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-8" name="cause_area[]" value="Education">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Education
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-9" name="cause_area[]" value="Employment services">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Employment services
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-10" name="cause_area[]" value="Environment">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Environment
+                                            </label>
+
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-11" name="cause_area[]" value="Gender equity & justice">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Gender equity & justice
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-12" name="cause_area[]" value="Health & nutrition">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Health & nutrition
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-13" name="cause_area[]" value="Housing & homelessness">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Housing & homelessness
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-14" name="cause_area[]" value="Human services">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Human services
+                                            </label>
+
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-15" name="cause_area[]" value="International affairs">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                International affairs
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-16" name="cause_area[]" value="Justice & legal services">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Justice & legal services
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-17" name="cause_area[]" value="LGBTQ+">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                LGBTQ+
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-18" name="cause_area[]" value="Maternal health">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Maternal health
+                                            </label>
+                                            <label style="display: flex; align-items: center;">
+                                                <div class="checkbox-wrapper-43" style="margin-right: 10px;">
+                                                    <input type="checkbox" id="cbx-43-4" name="cause_area[]" value="Community & economic development">
+                                                    <span class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                Community & economic development
+                                            </label>
+
+                                    </div>
+                </div>
+            
+            </div>
+            <div class="form-column">
                 <label for="description">Description:</label><br>
-                <textarea id="description" name="description" rows="4" required></textarea><br><br>
+                <textarea id="description" name="description" rows="4" required style="width: 350px; height: 150px;"></textarea><br><br>
                 
                 <label for="requirements">Requirements:</label><br>
-                <textarea id="requirements" name="requirements" rows="4" required></textarea><br><br>
+                <textarea id="requirements" name="requirements" rows="4" required style="width: 350px; height: 150px;"></textarea><br><br>
                 
                 <label for="date">Date:</label><br>
                 <input type="date" id="date" name="date" required><br><br>
                 
                 <button name="post" type="submit" id="post-btn">Post Opportunity</button>
             </form>
+                
+            </div>
+        </div>
+    </div>
+    
+    <main>
+        <section>
+           
+            <form action="../action/post_opportunity_process.php" method="POST">
+                
+                
+                
         </section>
     </main>
     
@@ -68,3 +322,17 @@
     </footer>
 </body>
 </html>
+
+<?php
+    } else {
+        // User not found in the database
+        echo "User not found.";
+    }
+} else {
+    // User is not logged in or session variable is not set
+    echo "User is not logged in or session variable is not set.";
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>

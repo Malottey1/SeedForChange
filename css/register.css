@@ -1,4 +1,9 @@
 
+*{
+
+  font-family: 'Work Sans', sans-serif;
+
+}
 body {
     margin: 0;
     font-family: 'Work Sans', sans-serif;
@@ -24,7 +29,13 @@ body {
     margin-right: 0;
     overflow-y: auto; /* Allow scrolling for the form */
     overflow-x: hidden;
+    position: relative;
     
+    
+}
+
+.form-adjust{
+  margin-left:-50px;
 }
 
 .logo-container {
@@ -51,14 +62,16 @@ h1 {
 }
 
 .container {
-    width: 500px;
+    width: 600px;
     height: 400px;
-    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
     background-color: #ffffff;
-    margin: 0 auto;
+    margin: 0;
     overflow: auto;
+    position: relative;
 }
 
 form {
@@ -197,4 +210,68 @@ p a:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Example box shadow */
     z-index: 1000; /* Ensure the header stays above other content */
     font-style:unset;
+}
+
+
+/* Tabbed interface styles */
+.tabbed-interface {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  position: sticky;
+  top: 0; 
+  z-index: 1000;
+}
+
+.tab {
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px;
+  background-color: #5b8e35;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #32620e;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Next button styles */
+.next-button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #32620e;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.next-button:hover {
+  background-color: #3b7313;
+}
+
+.register {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #32620e;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
 }

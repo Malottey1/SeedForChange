@@ -2,6 +2,10 @@
 // Include the file to connect to the database
 include '../settings/connection.php';
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+
 session_start();
 
 // Check if the form is submitted

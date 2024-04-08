@@ -25,37 +25,50 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
     <title>User Profile</title>
 </head>
 <body>
-    <header>
-        <h1>User Profile</h1>
-        <nav>
-            <ul>
-                <li><a href="../view/homepage-postlogin.php">Homepage</a></li>
-                <li><a href="../action/logout.php">Logout</a></li>
-                <a href="../view/manage-opportunities.php" class="registered-opportunities-profile-button">Manage Opportunities</a>
-                <a href="../view/registered_opportunities.php" class="registered-opportunities-profile-button">Opportunities You Have Registered To</a>
-            </ul>
-        </nav>
-    </header>
+<header class="header">
+    <div class="logo">
+    <a href="../view/homepage-postlogin.php">
+        <img src="../assests/images/4.svg" alt="Seed for Change logo" style="width: 50px; height: auto; margin-left: 20px; margin-top: 10px;">
+    </a>
+    </div>
+    <div class="cta">
+        <a href="../view/volunteer_listings.php" style="margin-right: 10px;">Volunteer</a>
+        <a href="../view/post_opportunity.php" style="margin-right: 10px;">Post Opportunity</a>
+        <a href="../action/logout.php" style="margin-right: 20px;">Logout</a>
+    </div>
+</header>
 
-    <main>
-        <section>
-            <h2>User Information</h2>
-            <!-- Display user's profile photo, name, location, and biography -->
-            <?php if (!empty($user_data['profile_photo'])): ?>
+<div style="margin-bottom: 150px";>
+<div class="horizontal-strip">
+  <div class="profile-photo">
+    <?php if (!empty($user_data['profile_photo'])): ?>
                 <img src="<?php echo $user_data['profile_photo']; ?>" alt="Profile Photo">
             <?php endif; ?>
-            <p>Name: <?php echo $user_data['first_name'] . ' ' . $user_data['last_name']; ?></p>
-            <p>Location: <?php echo $user_data['country']; ?></p>
-            <p>Biography: <?php echo $user_data['biography']; ?></p>
+  </div>
+  <div class="profile-details" style="color: white;">
+  <strong>
+        <p><?php echo $user_data['first_name'] . ' ' . $user_data['last_name']; ?></p>
+        <p><?php echo $user_data['country']; ?></p>
+        <p><?php echo $user_data['biography']; ?></p>
+    </strong>
+  <a href="../view/edit-profile.php" class="edit-profile-button">
+  <img src="../assests/images/pen-2.svg" style="width: 20px;">
+</a>
+  </div>
+</div>
 
-            <a href="../view/edit-profile.php" class="edit-profile-button">Edit Profile</a>
-
-            <h2>Skills</h2>
-            <!-- Display user's skills -->
-            <ul>
+<div class="tabs">
+        <div class="tab active" onclick="openTab(event, 'skills')">Skills</div>
+        <div class="tab" onclick="openTab(event, 'cause_areas')">Cause Areas</div>
+        <div class="tab" onclick="openTab(event, 'personal_experience')">Personal Experience</div>
+    </div>
+    <div id="skills" class="tab-content active">
+    <ul>
                 <?php
                 // Query to fetch user's skills
                 $sql_skills = "SELECT skills.name FROM user_skills 
@@ -71,11 +84,10 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                     echo '<li>No skills available</li>';
                 }
                 ?>
-            </ul>
-
-            <h2>Cause Areas</h2>
-            <!-- Display user's cause areas -->
-            <ul>
+    </ul>
+    </div>
+    <div id="cause_areas" class="tab-content">
+    <ul>
                 <?php
                 // Query to fetch user's cause areas
                 $sql_cause_areas = "SELECT cause_areas.name FROM user_cause_areas 
@@ -92,11 +104,9 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                 }
                 ?>
             </ul>
-
-
-            <h2>Professional Experiences</h2>
-            <!-- Fetch and display user's professional experiences -->
-            <?php
+    </div>
+    <div id="personal_experience" class="tab-content">
+    <?php
             $sql = "SELECT * FROM professional_experiences WHERE user_id = $user_id";
             $result = mysqli_query($conn, $sql);
 
@@ -112,9 +122,63 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                 echo "<p>No professional experiences found.</p>";
             }
             ?>
+    </div>
+
+        </div>
+
+            
         </section>
     </main>
+    <div class="space">
+
+
+
+    <div class="welcome">
+        <img class="image" src="../assests/images/iu.svg" alt="Image Description" style="width:150px;">
+        <div class="text">
+            <h2>Hi <?php echo $user_data['first_name'] ?>, welcome to your Seed For Change profile.</h2><br>
+            <p>Explore opportunities and sign up today!</p>
+        </div>
+    </div>
+
+
+    <footer>
+
+
+  <div> 
+  <div>
+    <a href="#">Privacy</a>
+    <a href="#">Contact Us</a>
+    <a href="../view/homepage.php">About Us</a>
+  </div>
+
+  <img src="../assests/images/2.svg" alt="Profile Picture" style="width: 200px; text-align:center; margin-right: 1200px; ">
+</footer>
+
+
+
+
+
+
+
+    <script>
+        function openTab(evt, tabName) {
+        var tabContent = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+        
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
+        }
+        
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.classList.add("active");
+        }
+</script>
 </body>
+
 </html>
 
 <?php
