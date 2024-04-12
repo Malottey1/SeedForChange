@@ -2,8 +2,8 @@
 // Include the file to connect to the database
 include '../settings/connection.php';
 
-// Check if the search keyword is provided
-if (isset($_GET['search'])) {
+// Check if the search keyword is provided and is not empty or just spaces
+if (isset($_GET['search']) && trim($_GET['search']) !== '') {
     $search = $_GET['search'];
 
     // Prepare the SQL statement to search for opportunities
@@ -26,7 +26,8 @@ if (isset($_GET['search'])) {
     header("Location: ../view/search_results.php?search=$search");
     exit();
 } else {
-    // No search keyword provided
-    echo "Please enter a search keyword.";
+    // No search keyword provided or it's just spaces
+    echo "Please enter a valid search keyword.";
 }
+
 ?>
