@@ -95,8 +95,8 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                         </td>
                         <td>
                         <form id="deleteForm" action="../action/delete_opportunity.php" method="post">
-                            <input type="hidden" name="opportunity_id" value="<?php echo $row['id']; ?>"> <!-- Replace 1 with the actual opportunity ID -->
-                            <button style="background-color: transparent; border: none;" type="submit" onclick="return confirm('Are you sure you want to delete this opportunity?')">
+                            <input type="hidden" name="opportunity_id" value="<?php echo $row['id']; ?>"> 
+                            <button style="background-color: transparent; border: none;" type="submit" onclick="confirmDelete(event)">
                                 <img src= "../assests/images/trash.svg">
                             </button>
                         </form>
@@ -139,6 +139,26 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                 form.submit();
             });
             <?php } ?>
+        </script>
+        <script>
+            function confirmDelete(event) {
+                event.preventDefault(); // Prevent form submission
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit the form if the user confirms
+                        document.getElementById('deleteForm').submit();
+                    }
+                });
+            }
         </script>
        
             

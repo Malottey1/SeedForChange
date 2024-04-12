@@ -176,8 +176,11 @@ h2{
     margin-bottom: 50px;
     border-top: #32620e solid thin;
     padding-top: 20px;
+    text-decoration: none;
     
 }
+
+
 
 .user-card {
     margin: 10px;
@@ -187,6 +190,8 @@ h2{
     width: 250px;
     text-align: center;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: #32620e;
 }
 
 .user-card img {

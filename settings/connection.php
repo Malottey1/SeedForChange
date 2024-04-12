@@ -1,7 +1,7 @@
 <?php
 if (!defined('DBHOST')) define("DBHOST", "localhost");
-if (!defined('DBNAME')) define("DBNAME", "u505497111_ seedforchange");
-if (!defined('DBUSER')) define("DBUSER", "u505497111_malcolm1");
+if (!defined('DBNAME')) define("DBNAME", "seed_for_change");
+if (!defined('DBUSER')) define("DBUSER", "root");
 if (!defined('DBPASS')) define("DBPASS", "Naakey057@");
 
 // Create connection
