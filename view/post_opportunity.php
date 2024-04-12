@@ -1,11 +1,11 @@
 <?php
   include "../settings/connection.php";
+  include "../action/post_opportunity_process.php";
   //check_login();
 
   ini_set('display_errors', 1);
-error_reporting(E_ALL);
+  error_reporting(E_ALL);
 
-  session_start();
 
   if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id']; // Assuming you store user ID in session
@@ -31,6 +31,8 @@ error_reporting(E_ALL);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/post-opp.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <title>Post Volunteer Opportunities</title>
 </head>
 <body>
@@ -298,7 +300,7 @@ error_reporting(E_ALL);
                 <textarea id="requirements" name="requirements" rows="4" required style="width: 350px; height: 150px;"></textarea><br><br>
                 
                 <label for="date">Date:</label><br>
-                <input type="date" id="date" name="date" required><br><br>
+                <input type="date" id="date" name="date" required  onchange="validateDate()"><br><br>
                 
                 <button name="post" type="submit" id="post-btn">Post Opportunity</button>
             </form>
@@ -322,9 +324,38 @@ error_reporting(E_ALL);
     </footer>
 </body>
 </html>
+<script>
+    function validateDate() {
+        var selectedDate = new Date(document.getElementById("date").value);
+        var currentDate = new Date(); // Get the current date
 
+        // Compare the selected date with the current date
+        if (selectedDate < currentDate) {
+            alert("Selected date cannot be in the past.");
+            document.getElementById("date").value = ""; // Clear the input field
+        }
+    }
+</script>
 <?php
-    } else {
+   // Check if the post was successful
+if (isset($_SESSION['post_success']) && $_SESSION['post_success']) {
+    // Display SweetAlert for successful post
+    echo '<script>';
+    echo 'Swal.fire({';
+    echo '  icon: "success",';
+    echo '  title: "Post Successful",';
+    echo '  text: "Your opportunity has been successfully posted!",';
+    echo '  timer: 2000,';
+    echo '  showConfirmButton: false';
+    echo '});';
+    echo '</script>';
+
+    // Unset the session variable to prevent the SweetAlert from showing on page refresh
+    unset($_SESSION['post_success']);
+}
+ 
+
+} else {
         // User not found in the database
         echo "User not found.";
     }

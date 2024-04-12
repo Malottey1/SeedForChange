@@ -22,6 +22,17 @@ if (isset($_POST['register'])) {
     // Validate the form data (you may need more robust validation)
     if (!empty($email) && !empty($password) && !empty($confirm_password)) {
         if ($password === $confirm_password) {
+
+            // Check if email already exists
+            $check_query = "SELECT * FROM users WHERE email='$email'";
+            $check_result = mysqli_query($conn, $check_query);
+            if (mysqli_num_rows($check_result) > 0) {
+                // Email already exists, notify the user
+                echo "<script>alert('Email already exists. Please choose a different email.');</script>";
+                header("Location: ../login/register.php");
+                exit(); // Stop further execution
+            }
+
             // Hash the password for security
             $hashed_password = md5($password); // You should use a more secure hashing algorithm like bcrypt
 

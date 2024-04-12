@@ -27,6 +27,8 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/profile.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>User Profile</title>
 </head>
 <body>
@@ -54,12 +56,21 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
   <strong>
         <p><?php echo $user_data['first_name'] . ' ' . $user_data['last_name']; ?></p>
         <p><?php echo $user_data['country']; ?></p>
-        <p><?php echo $user_data['biography']; ?></p>
     </strong>
   <a href="../view/edit-profile.php" class="edit-profile-button">
   <img src="../assests/images/pen-2.svg" style="width: 20px;">
 </a>
   </div>
+</div>
+
+
+<div class="bio-strip">
+  <div class="bio-details" style="color: black;">
+        <h2 style="font-style:normal; font-weight:40;">Profile</h2>
+        <p style="font-style:normal; font-weight:40;"><?php echo $user_data['biography']; ?></p>
+  </div>
+
+
 </div>
 
 <div class="tabs">
@@ -189,6 +200,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 } else {
     // User is not logged in or session variable is not set
     echo "User is not logged in or session variable is not set.";
+    header("Location: ../login/login.php");
 }
 
 // Close the database connection

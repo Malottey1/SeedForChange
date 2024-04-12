@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/register-opp.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <title>Opportunity Details</title>
 </head>
 <body>
@@ -68,10 +70,11 @@
                 // Registration form
                 echo '<h3 style="margin-bottom: 5px";>Registration Options</h3>';
                 echo '<p>If you\'re interested in participating in this opportunity, please register below:</p>';
-                echo '<form id="registrationForm" action="../action/register_opportunity_process.php" method="POST">';
+                echo '<form id="registrationForm" action="../action/register_opportunity_process.php" method="POST" onsubmit="return showSuccessAlert()">';
                 echo '<input type="hidden" name="opportunity_id" value="' . $opportunity_id . '">';
                 echo '<button name="register-opp" type="submit">Register</button>';
                 echo '</form>';
+                
             } else {
                 echo '<p>Opportunity not found.</p>';
             }
@@ -95,5 +98,27 @@
 
   <img src="../assests/images/2.svg" alt="Profile Picture" style="width: 200px; text-align:center; margin-right: 1200px; ">
 </footer>
+<script>
+    function showSuccessAlert() {
+
+        // Show Sweet Alert dialog
+        Swal.fire({
+            icon: 'success',
+            title: 'Registration Successful!',
+            text: 'You have successfully registered for this opportunity, you will be contacted by the other party.',
+            showConfirmButton: true, // Ensure the confirm button is shown
+            allowOutsideClick: false, // Prevent the user from clicking outside the alert
+            allowEscapeKey: false, // Prevent the user from dismissing the alert using the escape key
+            allowEnterKey: false, // Prevent the user from submitting the alert using the enter key
+            confirmButtonText: 'OK',
+            timer: 5000
+        });
+        // Return true to submit the form
+        return true;
+    }
+</script>
+
+
+
 </body>
 </html>

@@ -23,6 +23,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
         $country = $_POST['country'];
         $phone_number = $_POST['phone_number'];
         $languages_spoken = $_POST['languages_spoken'];
+        $hashed_password = md5($password);
         
         // Update professional experiences
         $positions = $_POST['position'];
@@ -40,7 +41,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
         // Update user information in the database
         $update_user_sql = "UPDATE users SET email=?, password=?, first_name=?, last_name=?, biography=?, country=?, phone_number=?, languages_spoken=? WHERE user_id=?";
         $stmt = mysqli_prepare($conn, $update_user_sql);
-        mysqli_stmt_bind_param($stmt, "ssssssssi", $email, $password, $first_name, $last_name, $biography, $country, $phone_number, $languages_spoken, $user_id);
+        mysqli_stmt_bind_param($stmt, "ssssssssi", $email, $hashed_password, $first_name, $last_name, $biography, $country, $phone_number, $languages_spoken, $user_id);
         mysqli_stmt_execute($stmt);
         
         // Update professional experiences

@@ -90,10 +90,12 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
             <title>Opportunities Registered</title>
             <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
+            <script src="sweetalert2.min.js"></script>
+            <link rel="stylesheet" href="sweetalert2.min.css">
         </head>
         <header class="header">
             <div class="logo">
-            <a href="../view/homepage-postlogin">
+            <a href="../view/homepage-postlogin.php">
                 <img src="../assests/images/3.svg" alt="Seed for Change logo" style="width: 50px; height: auto; margin-left: 20px; margin-top: 10px;">
             </a>
             </div>
@@ -196,14 +198,15 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
         <?php
     } else {
         echo '<!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Opportunities Registered</title>
-                    <link rel="stylesheet" type="text/css" href="../css/register-opp.css">
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
-                </head>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Opportunities Registered</title>
+                <link rel="stylesheet" type="text/css" href="../css/register-opp.css">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
+            </head>
+            <body>
                 <header class="header">
                     <div class="logo">
                         <img src="../assests/images/4.svg" alt="Seed for Change logo" style="width: 50px; height: auto; margin-left: 20px; margin-top: 10px;">
@@ -212,10 +215,15 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                         <a href="../view/volunteer_listings.php" style="margin-right: 10px;">Volunteer</a>
                         <a href="../view/post_opportunity.php" style="margin-right: 10px;">Post Opportunity</a>
                         <a href="../view/profile.php" style="margin-right: 10px;">
-                            <span><img src="profile-photo.jpg" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 20px;margin-top : 10px;"></span>
+                            <span>';
+                                if (!empty($user_data['profile_photo'])) {
+                                    echo '<img src="' . $user_data['profile_photo'] . '" alt="Profile Photo" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 20px;margin-top : 10px;">';
+                                }
+            echo            '</span>
                         </a>
                     </div>
                 </header>';
+
         
         // No opportunities found for the user
     
@@ -241,6 +249,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 } else {
     // User is not logged in or session variable is not set
     echo "User is not logged in or session variable is not set.";
+    header("Location: ../login/login.php");
 }
 
 // Close the database connection

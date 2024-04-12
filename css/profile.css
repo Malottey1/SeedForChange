@@ -135,6 +135,13 @@ a:hover {
     border-bottom: 2px solid #32620e;
 }
 
+.bio-strip{
+  background-color:#f0f0f0;
+  width:100%;
+  padding: 20px;
+  border-bottom: 2px solid #32620e;
+}
+
 .features {
     display: flex;
     justify-content: space-between;
@@ -250,6 +257,10 @@ a:hover {
   
   .profile-details {
     text-align: left;
+  }
+
+  .bio-details {
+    text-align: center;
   }
 
   .tabbed-interface {

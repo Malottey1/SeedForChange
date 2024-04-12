@@ -34,11 +34,12 @@ if (isset($_POST['login'])) {
                 $_SESSION["email"] = $user["email"];
 
                 // Redirect the user to the homepage or dashboard
-                header("Location: ../view/homepage-postlogin.php");
+                header("Location: ../view/profile.php");
                 exit();
             } else {
-                // User does not exist or invalid credentials
-                echo "Invalid email or password. Please try again.";
+                // Incorrect email or password, display SweetAlert2 alert
+                $_SESSION["login_failed"] = true;
+                header("Location: ../login/login.php");
             }
         } else {
             // Error in the query

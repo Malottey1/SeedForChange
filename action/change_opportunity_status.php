@@ -38,6 +38,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 } else {
     // User is not logged in or session variable is not set
     echo "User is not logged in or session variable is not set.";
+    header("Location: ../login/login.php");
 }
 
 // Close the database connection

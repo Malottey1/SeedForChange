@@ -30,6 +30,8 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/edit-page.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Profile</title>
 </head>
 <body>
@@ -789,6 +791,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
         } else {
             // User is not logged in or session variable is not set
             echo "User is not logged in or session variable is not set.";
+            header("Location: ../login/login.php");
         }
 
         // Close the database connection

@@ -25,6 +25,8 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
     <title>User Profile</title>
 </head>
 <body>

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Register</title>
 </head>
 <body>
@@ -32,7 +34,9 @@
                 <input type="password" id="password" name="password" required><br>
                 <label for="confirm_password">Confirm Password:</label>
                 <input type="password" id="confirm_password" name="confirm_password" required><br>
-                <div class="next-button" onclick="nextTab('tab1')">Next</div>
+                <div class="next-button" onclick="validateForm()">Next</div>
+                <br>
+                        <p>Already have an account? <a href="../login/login.php">Login here</a></p>
             </div>
                 
                 
@@ -74,7 +78,7 @@
                 </div>
                 <button type="button" onclick="addExperience()" style="margin-left: 70px";>Add Another Experience</button>
 
-                <div class="next-button" onclick="nextTab('tab3')">Next</div>
+                <div class="next-button" onclick="validateDates()">Next</div>
             </div>
 
 
@@ -727,8 +731,7 @@
                 <br>
                     <center><button name="register" type="submit" id="loginButton" style="margin-left: 70px";>Register</button><center>
                 </form>
-                        <br>
-                        <p>Already have an account? <a href="../login/login.php">Login here</a></p>
+                        
 
                     
             
@@ -809,6 +812,61 @@
     document.querySelector('.container').scrollIntoView({
         behavior: 'smooth'
     });
+    }
+
+function validateForm() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var confirm_password = document.getElementById("confirm_password").value;
+
+    // Email regex pattern
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    // Password regex pattern (at least 8 characters, at least one uppercase letter, one lowercase letter, and one number)
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordPattern.test(password)) {
+        alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.");
+        return;
+    }
+
+    // Check if password and confirm password match
+    if (password !== confirm_password) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    // If all validations pass, proceed to the next tab or form submission
+    nextTab('tab1'); // Assuming nextTab function exists for switching tabs
+}
+
+function validateDates() {
+        var fromDateInputs = document.getElementsByName("from_date[]");
+        var toDateInputs = document.getElementsByName("to_date[]");
+
+        for (var i = 0; i < fromDateInputs.length; i++) {
+            var fromDate = new Date(fromDateInputs[i].value);
+            var toDate = new Date(toDateInputs[i].value);
+
+            // Check if the from date is ahead of the to date
+            if (fromDate > toDate) {
+                alert("From date cannot be ahead of the to date.");
+                return false;
+            }
+
+            // Check if the to date is in the future
+            var today = new Date();
+            if (toDate > today) {
+                alert("To date cannot be in the future.");
+                return false;
+            }
+        }
+
+        // If all date validations pass, proceed to the next tab
+        nextTab('tab3');
     }
 
 </script>

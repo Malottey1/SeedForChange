@@ -2,8 +2,6 @@
 // Start the session
 session_start();
 
-
-
 // Include database connection
 include "../settings/connection.php";
 ini_set('display_errors', 1);
@@ -50,12 +48,13 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                         }
                     }
                 }
-
+                    // After successfully posting the opportunity, set a session variable
+                    $_SESSION['post_success'] = true;
 
                 // Opportunity posted successfully
                 echo "Opportunity posted successfully!";
                 // Redirect the user to the homepage or another appropriate page
-                header("Location: ../view/homepage-postlogin.php");
+                header("Location: ../view/post_opportunity.php");
                 exit();
             } else {
                 // Error in SQL execution
@@ -71,6 +70,4 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     echo "User is not logged in or session variable is not set.";
 }
 
-// Close the database connection
-mysqli_close($conn);
 ?>

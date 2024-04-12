@@ -27,6 +27,8 @@ error_reporting(E_ALL);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/volunteer_listings.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Volunteer Listings</title>
 </head>
 <body>
@@ -57,7 +59,7 @@ error_reporting(E_ALL);
 
 <form action="../action/search_opportunities.php" method="GET" class="search-form">
     <input type="text" id="search" name="search" class="search-input" placeholder="Enter search keyword">
-    <button type="submit" class="search-button">Search</button>
+    <button type="submit" class="search-button" style="margin-left:10px;">Search</button>
 </form>
 
 <main>
@@ -67,8 +69,8 @@ error_reporting(E_ALL);
         // Include the file to connect to the database
         include '../settings/connection.php';
 
-        // Query to fetch opportunities with status 1
-        $sql = "SELECT * FROM opportunities WHERE status = 1";
+        $sql = "SELECT * FROM opportunities WHERE status = 1 AND id NOT IN (SELECT opportunity_id FROM users_opportunities  WHERE user_id = $user_id)
+        AND user_id != $user_id"; // Exclude opportunities the user has already registered for and the opportunities the user created
         $result = mysqli_query($conn, $sql);
 
         // Check if there are any opportunities
@@ -154,6 +156,7 @@ error_reporting(E_ALL);
 } else {
     // User is not logged in or session variable is not set
     echo "User is not logged in or session variable is not set.";
+    header("Location: ../login/login.php");
 }
 
 ?>

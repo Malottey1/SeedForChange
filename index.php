@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap">
     <title>Seed for Change</title>
 </head>
@@ -11,7 +11,7 @@
     <div class="hero"></div>
     <header class="header">
         <div class="logo">
-            <img src="../assests/images/4.svg" alt="Seed for Change logo" style="width: 50px; height: auto;">
+            <img src="assests/images/4.svg" alt="Seed for Change logo" style="width: 50px; height: auto;">
         </div>
         <div class="cta">
         <button onclick="scrollToGetStarted()">Get Started</button>
@@ -44,19 +44,19 @@
         </div>
         <div class="features">
             <div class="feature-column">
-            <img src="../assests/images/5.svg" alt="Seed for Change logo" style="width:150px; height: auto;">
+            <img src="assests/images/5.svg" alt="Seed for Change logo" style="width:150px; height: auto;">
                 <p style="color: #32620e;">Search and apply for volunteer opportunities</p>
             </div>
             <div class="feature-column">
-            <img src="../assests/images/8.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
+            <img src="assests/images/8.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
                 <p>Create and manage volunteer listings</p>
             </div>
             <div class="feature-column">
-            <img src="../assests/images/6.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
+            <img src="assests/images/6.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
                 <p style="color: #32620e;">Track volunteer registrations</p>
             </div>
             <div class="feature-column">
-            <img src="../assests/images/7.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
+            <img src="assests/images/7.svg" alt="Seed for Change logo" style="width: 150px; height: auto;">
                 <p>Update and manage volunteer activity</p>
             </div>
 </div>
@@ -68,9 +68,9 @@
     <div class="custom-text-column custom-horizontal-strip">
         <h2>Get Started</h2>
         <p>Ready to make a difference? Join Seed for Change today!</p>
-        <a href="../login/register.php" class="rounded-button">Register</a>
+        <a href="login/register.php" class="rounded-button">Register</a>
         <span>or</span>
-        <a href="../login/login.php" class="rounded-button">Login</a>
+        <a href="login/login.php" class="rounded-button">Login</a>
     </div>
     <div class="custom-image-column"></div>
 </div>
